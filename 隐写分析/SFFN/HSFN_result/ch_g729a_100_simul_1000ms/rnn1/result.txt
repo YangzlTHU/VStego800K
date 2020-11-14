@@ -1,0 +1,2 @@
+num_validation: 38229 	 num_train: 152918 
+loaded best_checkpoint (epoch 48, best_acc 79.93, acc_cover 83.88, acc_positive 75.98)
