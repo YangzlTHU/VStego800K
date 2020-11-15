@@ -48,7 +48,4 @@ We apply the following steganalysis algorithms for dataset evaluation:
 - __SFFN__:Hu, Y., Huang, Y., Yang, Z., & Huang, Y. Detection of heterogeneous parallel steganography for low bit-rate VoIP speech streams. Neurocomputing, 419, 70-79.
 For more details, including codes and tutorial, please refer to our __[Steganalysis page](Steganalysis)__.
 
-## __Overall Results__
-
-## More Details
 
