@@ -26,7 +26,7 @@ For those who cannot access Google in Mainland China, try this Baidu Cloud Disk 
 * [Train Set](https://pan.baidu.com/s/1dJtBXQuZnG2eba13tbmnOA)(__extraction code__:a1xd)   
 * [ Test Set](https://pan.baidu.com/s/1MREl-doUf2MG4-BuE91P0w)(__extraction code__:levg
 
-####Detailed Parameters
+#### Detailed Parameters
 We also provide detailed parameters for each samples in corresponding label.csv
     
 ## Steganographic Algorithms 
@@ -48,7 +48,7 @@ We apply the following steganalysis algorithms for dataset evaluation:
 - __SFFN__:Hu, Y., Huang, Y., Yang, Z., & Huang, Y. Detection of heterogeneous parallel steganography for low bit-rate VoIP speech streams. Neurocomputing, 419, 70-79.
 For more details, including codes and tutorial, please refer to our __[Steganalysis page](Steganalysis)__.
 
-##__Overall Results__
+## __Overall Results__
 
 ## More Details
 
