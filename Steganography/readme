@@ -6,21 +6,20 @@ At the same time, this tool is also used to build the first National Information
 The usage is as follows:
 
 1. Use wav2pcm.py to remove the wav header and change the wav file into a pcm file. You need to modify the path of wav file  and the save path of pcm in. py file.
+
 2. StegCoder. Exe is used for steganography
 
-(1) Place the pcm file that requires steganography in a folder named Input.
+   (1) Place the pcm file that requires steganography in a folder named Input.
 
-(2)  Create a new output folder for steganized files.
+   (2)  Create a new output folder for steganized files.
 
-(3)  If you are using CNV-QIM steganography algorithms with a 100% 	 embedding rate, type at the command prompt:
+   (3)  If you are using CNV-QIM steganography algorithms with a 100% 	embedding rate, type at the command prompt:
 
-​       `StegCoder.exe -i input -o output -a cnv -r 100 `
+   ​       `StegCoder.exe -i input -o output -a cnv -r 100 `
 
-​	 If you are using Pitch modulation steganography algorithms with a 100% embedding rate, type at the command prompt:
+   ​	 If you are using Pitch modulation steganography algorithms with a 100% embedding rate, type at the command prompt:
 
-​     ` StegCoder.exe -i input -o output -a pitch -r 100`
-
-
+   ​     ` StegCoder.exe -i input -o output -a pitch -r 100`
 
    
 
