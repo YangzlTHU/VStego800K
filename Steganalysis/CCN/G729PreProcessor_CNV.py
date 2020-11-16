@@ -37,18 +37,16 @@ def get_file_list():
 
 
 def process_file(fileName):
-
-    # Extract 3 QIM steganographic features
     def extract_frame(content):
+        ####### ACW [a,b]
         if type(content) == str:
             content_t = [int(item.encode('hex'), 16) for item in content]
         else:
             content_t = content
-        a = content_t[0] & 0x7f
-        b = (content_t[1] >> 3) & 0x1f
-        c = ((content_t[1] << 2) & 0x1c) | ((content_t[2] >> 6) & 0x03)
+        a = ((content_t[2] << 2) & 0xfc) | ((content_t[3] >> 6) & 0x03)
+        b = content_t[6] & 0x1f
 
-        return [a, b, c]
+        return [a, b]
 
     global args
 
@@ -65,8 +63,7 @@ def process_file(fileName):
     feat = np.array(feat, dtype=int)
 
     basename = os.path.splitext(os.path.basename(fileName))[0]
-    np.savetxt(os.path.join(args.output, "%s_3_feat.txt" % (basename)), feat, fmt='%d')
-
+    np.savetxt(os.path.join(args.output, "%s_2_feat.txt" % (basename)), feat, fmt='%d')
 
 if __name__ == "__main__":
     global args
