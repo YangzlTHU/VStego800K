@@ -37,7 +37,6 @@ def get_file_list():
 
 
 def process_file(fileName):
-    '''
     # 提取5维综合特征
     def extract_frame(content):
         if type(content) == str:
@@ -51,108 +50,6 @@ def process_file(fileName):
         e = content_t[6] & 0x1f
         return [a, b, c, d, e]
 
-    '''
-
-    # 提取3维QIM隐写特征
-    def extract_frame(content):
-        if type(content) == str:
-            content_t = [int(item.encode('hex'), 16) for item in content]
-        else:
-            content_t = content
-        a = content_t[0] & 0x7f
-        b = (content_t[1] >> 3) & 0x1f
-        c = ((content_t[1] << 2) & 0x1c) | ((content_t[2] >> 6) & 0x03)
-
-        return [a, b, c]
-
-    '''
-    # 提取4维PMS隐写特征
-    def extract_frame(content):
-        ####### ACW [a,b]
-        if type(content) == str:
-            content_t = [int(item.encode('hex'), 16) for item in content]
-        else:
-            content_t = content
-        a = ((content_t[2] << 2) & 0xfc) | ((content_t[3] >> 6) & 0x03)
-        b = content_t[6] & 0x1f
-
-        ####### PIF [t0, t1, t0_frac, t1_frac]
-        # subframe1
-        index = a
-        if index < indexthre:
-            t0 = math.floor((index + 2) / 3) + 19
-            t0_frac = index - t0 * 3 + 58
-        else:
-            t0 = index - 112
-            t0_frac = 0
-        # subframe2
-        t0_min = t0 - 5
-        if t0_min < pitch_min:
-            t0_min = pitch_min
-        t0_max = t0_min + 9
-        if t0_max > pitch_max:
-            t0_max = pitch_max
-            t0_min = t0_max - 9
-        index = b
-        temp = math.floor((index + 2) / 3) - 1
-        t1 = temp + t0_min
-        t1_frac = index - 2 - temp * 3
-
-        return [t0, t1, t0_frac, t1_frac]
-
-    '''
-    '''
-    # 提取7维特征（3+4）
-    def extract_frame(content):
-        ####### ACW [a,b]
-        if type(content) == str:
-            content_t = [int(item.encode('hex'), 16) for item in content]
-        else:
-            content_t = content
-
-        x1 = content_t[0] & 0x7f
-        x2 = (content_t[1] >> 3) & 0x1f
-        x3 = ((content_t[1] << 2) & 0x1c) | ((content_t[2] >> 6) & 0x03)
-
-        a = ((content_t[2] << 2) & 0xfc) | ((content_t[3] >> 6) & 0x03)
-        b = content_t[6] & 0x1f
-
-        ####### PIF [t0, t1, t0_frac, t1_frac]
-        # subframe1
-        index = a
-        if index < indexthre:
-            t0 = math.floor((index + 2) / 3) + 19
-            t0_frac = index - t0 * 3 + 58
-        else:
-            t0 = index - 112
-            t0_frac = 0
-        # subframe2
-        t0_min = t0 - 5
-        if t0_min < pitch_min:
-            t0_min = pitch_min
-        t0_max = t0_min + 9
-        if t0_max > pitch_max:
-            t0_max = pitch_max
-            t0_min = t0_max - 9
-        index = b
-        temp = math.floor((index + 2) / 3) - 1
-        t1 = temp + t0_min
-        t1_frac = index - 2 - temp * 3
-
-        return [x1, x2, x3, t0, t1, t0_frac, t1_frac]
-    '''
-    '''
-    def extract_frame(content):
-        ####### ACW [a,b]
-        if type(content) == str:
-            content_t = [int(item.encode('hex'), 16) for item in content]
-        else:
-            content_t = content
-        a = ((content_t[2] << 2) & 0xfc) | ((content_t[3] >> 6) & 0x03)
-        b = content_t[6] & 0x1f
-
-        return [a, b]
-    '''
     global args
 
     file = open(fileName, "rb")
@@ -168,10 +65,7 @@ def process_file(fileName):
     feat = np.array(feat, dtype=int)
 
     basename = os.path.splitext(os.path.basename(fileName))[0]
-    np.savetxt(os.path.join(args.output, "%s_3_feat.txt" % (basename)), feat, fmt='%d')
-    # np.save(os.path.join(args.output, "%s_LSFCW.py" % (basename)), LSFCW)
-    # np.save(os.path.join(args.output, "%s_ACW.npy" % (basename)), ACW)
-    # p.save(os.path.join(args.output, "%s_PIF.npy" % (basename)), PIF)
+    np.savetxt(os.path.join(args.output, "%s_5_feat.txt" % (basename)), feat, fmt='%d')
 
 
 if __name__ == "__main__":
