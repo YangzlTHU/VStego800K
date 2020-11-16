@@ -57,20 +57,39 @@ We apply the following steganalysis algorithms for dataset evaluation:
 * __RSM__:Lin, Z., Huang, Y., & Wang, J. (2018). RNN-SM: Fast steganalysis of VoIP streams using recurrent neural network. IEEE Transactions on Information Forensics and Security, 13(7), 1854-1868. 
 
 - __FSM__:Yang, H., Yang, Z., Bao, Y., Liu, S., & Huang, Y. (2019). Fast steganalysis method for voip streams. IEEE Signal Processing Letters, 27, 286-290.
+
 - __SFFN__:Hu, Y., Huang, Y., Yang, Z., & Huang, Y. Detection of heterogeneous parallel steganography for low bit-rate VoIP speech streams. Neurocomputing, 419, 70-79.
-  For more details, including codes and tutorial, please refer to our __[Steganalysis page](Steganalysis)__.
+  For more details, including codes and tutorial, please refer to our __[Steganalysis page](Steganalysis)__.  
 
-## __Overall Results__
+  
 
- The overall performance of each steganalysis methods.
+  __Overall Results__
 
-| **Steganalysis Method** | Accuracy | Precision | Recall |   F1   |
-| :---------------------: | :------: | --------- | ------ | :----: |
-|         SS-QCCN         |  0.6117  | 0.6595    | 0.4617 | 0.5432 |
-|           CCN           |  0.5542  | 0.5544    | 0.5517 | 0.5531 |
-|           RSM           |  0.5174  | 0.5103    | 0.8605 | 0.6407 |
-|           FSM           |  0.7094  | 0.7085    | 0.7115 | 0.7100 |
-|          SFFN           |  0.7048  | 0.7206    | 0.6689 | 0.6938 |
+   The overall performance of each steganalysis methods on test set.
+
+  | **Steganalysis Method** | Accuracy | Precision | Recall |   F1   |
+  | :---------------------: | :------: | --------- | ------ | :----: |
+  |         SS-QCCN         |  0.6117  | 0.6595    | 0.4617 | 0.5432 |
+  |           CCN           |  0.5542  | 0.5544    | 0.5517 | 0.5531 |
+  |           RSM           |  0.5174  | 0.5103    | 0.8605 | 0.6407 |
+  |           FSM           |  0.7094  | 0.7085    | 0.7115 | 0.7100 |
+  |          SFFN           |  0.7048  | 0.7206    | 0.6689 | 0.6938 |
+
+  The steganalysis results of benchmark methods for different embedding rates in VStego800K .
+
+  | Steganalysis  Embedding  Rates |      | 10%    | 20%    | 30%    | 40%    |
+  | ------------------------------ | ---- | ------ | ------ | ------ | ------ |
+  | SS-QCCN                        | Acc  | 0.6792 | 0.6933 | 0.7189 | 0.7149 |
+  |                                | R    | 0.3274 | 0.4224 | 0.5279 | 0.5533 |
+  | CCN                            | Acc  | 0.5510 | 0.5436 | 0.5582 | 0.5495 |
+  |                                | R    | 0.5267 | 0.4917 | 0.5651 | 0.6138 |
+  | RSM                            | Acc  | 0.3029 | 0.3157 | 0.3087 | 0.3186 |
+  |                                | R    | 0.8390 | 0.8595 | 0.8687 | 0.8737 |
+  | FSM                            | Acc  | 0.6683 | 0.7026 | 0.7232 | 0.7381 |
+  |                                | R    | 0.5057 | 0.6847 | 0.7893 | 0.8568 |
+  | SFFN                           | Acc  | 0.6865 | 0.7171 | 0.7411 | 0.7601 |
+  |                                | R    | 0.4610 | 0.6265 | 0.7340 | 0.8349 |
+
 
 
 
